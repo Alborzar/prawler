@@ -1,9 +1,3 @@
-/*	prawler
- *	Version 1.3.1
- *	Entwickelt von Alborzar
- */
-
-
 Info("prawler")
 Credits("Entwickelt von Alborzar")
 
@@ -16,7 +10,7 @@ Menu, Tray, Add, Beenden, GuiClose
 if (!A_IsAdmin) {
 	Run *RunAs "%A_ScriptFullPath%",, UseErrorLevel
 	if (ErrorLevel) {
-		MsgBox, 262453, prawler (SA:MP 0.3.7-R1), % "Bitte starte prawler als Administrator, damit das Programm komplett funktionsfähig ist"
+		MsgBox, 262453, prawler (SA:MP 0.3.7-R1), % "Bitte starte prawler als Administrator, damit das Programm komplett funktionsfÃ¤hig ist"
 		IfMsgBox, Retry
 			Reload
 		else
@@ -52,7 +46,7 @@ global version 					:= "1.3.1"
 global mainURL 					:= "https://www.dl.alborzar.eu/prawler"
 global MainColor				:= "{4286f4}"
 global SecColor					:= "{FFFFFF}"
-global prefix 					:= "" MainColor "prawler {C0C0C0}• " SecColor ""
+global prefix 					:= "" MainColor "prawler {C0C0C0}â€¢ " SecColor ""
 global authkey 					:= "isKhZTagu3JropUq"
 global PasswordShown 			:= true
 global oTextDraws 				:= []
@@ -106,10 +100,10 @@ global TachoStatus				:= 0
 
 hotkeylist=
 (
-[F2]`tHilfemenü
+[F2]`tHilfemenÃ¼
 [F9]`tMembers Liste
 [Entf]`tPanickey (Direktes Beenden)
-[Ä]`tLetzte Chateingabe wiederholen
+[Ã„]`tLetzte Chateingabe wiederholen
 [M]`tFahrzeug starten/stoppen
 [Y]`t/Lock
 [X]`tSchnelltaste
@@ -123,7 +117,7 @@ hotkeylist=
 
 premiumfeatures=
 (
-/Add`tFreund hinzufügen
+/Add`tFreund hinzufÃ¼gen
 /Del`tFreund entfernen
 /Delall`tAlle Freunde entfernen
 /Freunde`tFreunde anzeigen
@@ -133,8 +127,8 @@ premiumfeatures=
 
 commandslist=
 (
-/Prawlerhelp`tHilfemenü
-/Settings`tEinstellungen öffnen
+/Prawlerhelp`tHilfemenÃ¼
+/Settings`tEinstellungen Ã¶ffnen
 /Taschenrechner(/Tr)`tTaschenrechner
 /Chatclear`tChat leeren
 /Link`tLetzten Link kopieren
@@ -143,7 +137,7 @@ commandslist=
 /Profil`tInformationen zum Benutzerkonto
 /Finanzen(/Fin)`tFinanzen anzeigen
 /Savestats`tStatistiken speichern
-/Alotto`tZufälliges Lotto spielen
+/Alotto`tZufÃ¤lliges Lotto spielen
 /Resms(/Re)`tAuf letzte SMS antworten
 /Afish`tAutomatisches Fischen
 /Asell`tAutomatisches Verkaufen der Fische
@@ -167,11 +161,11 @@ nrcommands=
 /Spendenaufruf`tSpendenaufruf starten / beenden
 /Wortsalat`TWortsalat starten / beenden
 /W1`tErstes Wort ausgeben
-/W1Stop`tErstes Wort abschließen
+/W1Stop`tErstes Wort abschlieÃŸen
 /W2`tZweites Wort ausgeben
-/W2Stop`tZweites Wort abschließen
+/W2Stop`tZweites Wort abschlieÃŸen
 /W3`tDrittes Wort ausgeben
-/W3Stop`tDrittes Wort abschließen
+/W3Stop`tDrittes Wort abschlieÃŸen
 )
 
 ;Textdraws
@@ -321,131 +315,131 @@ if(Old_Version < Version){
 }
 
 ;Checks
-SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nAlle Dateien werden überprüft..., , prawler
+SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nAlle Dateien werden Ã¼berprÃ¼ft..., , prawler
 Sleep 500
 IfNotExist, %A_AppData%\prawler
 {
 	FileCreateDir, %A_AppData%\prawler
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nVerzeichnis erstellt (AppData/prawler), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nVerzeichnis erstellt (AppData/prawler), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res
 {
 	FileCreateDir, %A_AppData%\prawler\res
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nVerzeichnis erstellt (AppData/prawler/res), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nVerzeichnis erstellt (AppData/prawler/res), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\temp
 {
 	FileCreateDir, %A_AppData%\prawler\temp
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nVerzeichnis erstellt (AppData/prawler/temp), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nVerzeichnis erstellt (AppData/prawler/temp), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\titel.png
 {
 	URLDownloadToFile, %mainURL%/res/titel.png, %A_AppData%\prawler\res\titel.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/titel.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/titel.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\ingameinfo.png
 {
 	URLDownloadToFile, %mainURL%/res/ingameinfo.png, %A_AppData%\prawler\res\ingameinfo.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/ingameinfo.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/ingameinfo.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\button-changelog.png
 {
 	URLDownloadToFile, %mainURL%/res/button-changelog.png, %A_AppData%\prawler\res\button-changelog.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/button-changelog.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/button-changelog.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\button-samp.png
 {
 	URLDownloadToFile, %mainURL%/res/button-samp.png, %A_AppData%\prawler\res\button-samp.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/button-samp.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/button-samp.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\button-teamspeak.png
 {
 	URLDownloadToFile, %mainURL%/res/button-teamspeak.png, %A_AppData%\prawler\res\button-teamspeak.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/button-teamspeak.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/button-teamspeak.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\willkommenstext.png
 {
 	URLDownloadToFile, %mainURL%/res/willkommenstext.png, %A_AppData%\prawler\res\willkommenstext.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/willkommenstext.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/willkommenstext.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\button-back.png
 {
 	URLDownloadToFile, %mainURL%/res/button-back.png, %A_AppData%\prawler\res\button-back.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/button-back.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/button-back.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\titel-information.png
 {
 	URLDownloadToFile, %mainURL%/res/titel-information.png, %A_AppData%\prawler\res\titel-information.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/titel-information.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/titel-information.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\informationstext.png
 {
 	URLDownloadToFile, %mainURL%/res/informationstext.png, %A_AppData%\prawler\res\informationstext.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/informationstext.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/informationstext.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\titel-changelog.png
 {
 	URLDownloadToFile, %mainURL%/res/titel-changelog.png, %A_AppData%\prawler\res\titel-changelog.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/titel-changelog.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/titel-changelog.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\button-beenden.png
 {
 	URLDownloadToFile, %mainURL%/res/button-beenden.png, %A_AppData%\prawler\res\button-beenden.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/button-beenden.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/button-beenden.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\gui-einstellungen.png
 {
 	URLDownloadToFile, %mainURL%/res/gui-einstellungen.png, %A_AppData%\prawler\res\gui-einstellungen.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/gui-einstellungen.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/gui-einstellungen.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\gui-hotkeys.png
 {
 	URLDownloadToFile, %mainURL%/res/gui-hotkeys.png, %A_AppData%\prawler\res\gui-hotkeys.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/gui-hotkeys.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/gui-hotkeys.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\button-hotkeys.png
 {
 	URLDownloadToFile, %mainURL%/res/button-hotkeys.png, %A_AppData%\prawler\res\button-hotkeys.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/button-hotkeys.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/button-hotkeys.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
 IfNotExist, %A_AppData%\prawler\res\button-variabeln.png
 {
 	URLDownloadToFile, %mainURL%/res/button-variabeln.png, %A_AppData%\prawler\res\button-variabeln.png
-	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nDatei heruntergeladen (AppData/prawler/res/button-variabeln.png), , prawler
+	SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nDatei heruntergeladen (AppData/prawler/res/button-variabeln.png), , prawler
 	Random, waitMS, 100, 1000
 	Sleep %waitMS%
 }
@@ -453,7 +447,7 @@ IfNotExist, %A_AppData%\prawler\res\button-variabeln.png
 IfExist, update.bat
 	FileDelete, update.bat
 
-SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Datenüberprüfung`nAbgeschlossen, , prawler
+SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, DatenÃ¼berprÃ¼fung`nAbgeschlossen, , prawler
 Sleep 1000
 SplashImage, %A_MyDocuments%\prawler_loading_screen.png, B, Interface wird generiert, , prawler
 
@@ -567,7 +561,7 @@ checkUpdate:
 	if(newestVersion > version){
 		if(WinActive("GTA:SA:MP")){
 			URLDownloadToVar_(mainURL . "/latest_changelog.txt", changelog)
-			MsgBox, 68, prawler, Es wurde eine neue Version von prawler veröffentlicht!`nMöchtest du diese herunterladen?`n`nVersion: %newestVersion%`n`nChangelog:`n%changelog%
+			MsgBox, 68, prawler, Es wurde eine neue Version von prawler verÃ¶ffentlicht!`nMÃ¶chtest du diese herunterladen?`n`nVersion: %newestVersion%`n`nChangelog:`n%changelog%
 			IfMsgBox, Yes
 			{
 				UrlDownloadToFile, %mainURL%/prawler.exe, prawler.new.exe
@@ -648,7 +642,7 @@ return
 
 ShowVariables:
 {
-	MsgBox, 262144, prawler (SA:MP 0.3.7-R1), Verfügbare Variabeln`n`n[username] [id] [ping] [fps] [zone] [city] [health] [armour] [money] [bankmoney] [fixmoney] [skinid] [weaponid] [weaponname] [freezed] [vhealth] [vspeed] [fishtime] [fraction] [fractionrank] [kills] [job] [crew] [crewrank] [wdealerrank] [fishmoney] [number] [sleep (MS)]
+	MsgBox, 262144, prawler (SA:MP 0.3.7-R1), VerfÃ¼gbare Variabeln`n`n[username] [id] [ping] [fps] [zone] [city] [health] [armour] [money] [bankmoney] [fixmoney] [skinid] [weaponid] [weaponname] [freezed] [vhealth] [vspeed] [fishtime] [fraction] [fractionrank] [kills] [job] [crew] [crewrank] [wdealerrank] [fishmoney] [number] [sleep (MS)]
 	
 }
 return
@@ -713,7 +707,7 @@ EinstellungenGuiClose:
 	
 	Gui Einstellungen: Destroy
 	
-	TrayTip, prawler (SA:MP 0.3.7-R1), Einstellungen wurden übernommen, 2000
+	TrayTip, prawler (SA:MP 0.3.7-R1), Einstellungen wurden Ã¼bernommen, 2000
 	
 	restartOverlay()
 }
@@ -829,8 +823,8 @@ RobTimer:
 		Sleep 1000
 		GetChatLine(0, Chat0)
 		GetChatLine(1, Chat1)
-		if(RegExMatch(Chat0, "Du hast diesen Store erfolgreich überfallen, die Hälfte der Beute wurde der Crew Kasse gutgeschrieben.")){
-			RegExMatch(Chat1, "\*\* (.*) hat ein Store im GK (.*) erfolgreich überfallen\. Beute\: ([0-9]+)\$", rob_)
+		if(RegExMatch(Chat0, "Du hast diesen Store erfolgreich Ã¼berfallen, die HÃ¤lfte der Beute wurde der Crew Kasse gutgeschrieben.")){
+			RegExMatch(Chat1, "\*\* (.*) hat ein Store im GK (.*) erfolgreich Ã¼berfallen\. Beute\: ([0-9]+)\$", rob_)
 			ShowGameText("~g~+" FormatNumber(rob_3) "$", 2000, 3)
 		}
 	}
@@ -898,19 +892,19 @@ autofuncs:
 		TD_checkpoint.hide()
 	}
 	
-	if(RegExMatch(Chat0, "Dein Marihuana benötigt noch ([0-9]+) Minuten\.", plant_) && DrugsPlanted == 0){
+	if(RegExMatch(Chat0, "Dein Marihuana benÃ¶tigt noch ([0-9]+) Minuten\.", plant_) && DrugsPlanted == 0){
 		DrugsSec := plant_1*60
 		DrugsPlanted := 1
 		if(DrogenEnabled != 0){
 			TD_drugs.show()
 		}
 		ShowGameText("~g~Drogenpflanze angebaut", 2500, 3)
-	}else if(RegExMatch(Chat0, "Inklusive Zeitbonus in Höhe von ([0-9]+)g hast du insgesamt ([0-9]+)g Marihuana aus deinen ([0-9]+) Samen geerntet\.", ernte_) && DrugsPlanted == 1){
+	}else if(RegExMatch(Chat0, "Inklusive Zeitbonus in HÃ¶he von ([0-9]+)g hast du insgesamt ([0-9]+)g Marihuana aus deinen ([0-9]+) Samen geerntet\.", ernte_) && DrugsPlanted == 1){
 		DrugsPlanted := 0
 		DrugsSec := 0
 		TD_drugs.hide()
 	}else if(RegExMatch(Chat1, "Du hast ([0-9]+) Samen gepflanzt\. Mit \'\/seed harvest\' kannst du den aktuellen Stand sowie die Position einsehen\.", drug_) && DrugsPlanted == 0){
-		RegExMatch(Chat0, "Der Mindestertrag an Drogen ist abhängig von der Zeit\, mindestens jedoch werden ([0-9]+) Minuten benötigt\.", drugs2_)
+		RegExMatch(Chat0, "Der Mindestertrag an Drogen ist abhÃ¤ngig von der Zeit\, mindestens jedoch werden ([0-9]+) Minuten benÃ¶tigt\.", drugs2_)
 		if(drugs2_1 > 0){
 			DrugsSec := drugs2_1*60
 			DrugsPlanted := 1
@@ -924,7 +918,7 @@ autofuncs:
 	if(RegExMatch(Chat0, "\[Waffendealer\]\: (.*) hat dein Angebot angenommen\. Der Checkpoint deines Partners wird bei \/materials get automatisch angepasst\.", wdpartner_) && WDPartner == "none"){
 		WDPartner := wdpartner_1
 		ShowGameText("~y~WD Partner~n~~p~" WDPartner, 2000, 3)
-	}else if(RegExMatch(Chat0, "\[Waffendealer\]\: (.*) und du können nun gemeinsam farmen\. Der Checkpoint deines Partners wird bei \/materials get automatisch angepasst\.", wdpartner_) && WDPartner == "none"){
+	}else if(RegExMatch(Chat0, "\[Waffendealer\]\: (.*) und du kÃ¶nnen nun gemeinsam farmen\. Der Checkpoint deines Partners wird bei \/materials get automatisch angepasst\.", wdpartner_) && WDPartner == "none"){
 		WDPartner := wdpartner_1
 		ShowGameText("~y~WD Partner~n~~p~" WDPartner, 2000, 3)
 	}else if(RegExMatch(Chat0, "\[Waffendealer\]\: Du farmst nun nicht mehr mit (.*)\.")){
@@ -938,7 +932,7 @@ autofuncs:
 		SetTimer, RobTimer, 1000
 		alreadyRobbing := 1
 		ChatMessage("Storerob Countdown gestartet! Zeit: 90 Sekunden")
-	}else if(RegExMatch(Chat0, "Du hast diesen Store erfolgreich überfallen, die Hälfte der Beute wurde der Crew Kasse gutgeschrieben.")){
+	}else if(RegExMatch(Chat0, "Du hast diesen Store erfolgreich Ã¼berfallen, die HÃ¤lfte der Beute wurde der Crew Kasse gutgeschrieben.")){
 		robCounter := 1
 	}
 	
@@ -975,10 +969,10 @@ autofuncs:
 		}
 	}
 	
-	if(RegExMatch(Chat0, "\* Busfahrer (.*)\: hat Linie (.*) für (.*)\$ und (.*) EXP beendet in (.*) Minuten\, over \*", var_)){
-		SetChatLine(0, "[Busfahrer] " var_1 " hat Linie " var_2 " für " var_3 "$ & " var_4 " EXP beendet. Zeit: " var_5 " Minuten")
-	}else if(RegExMatch(Chat1, "\* Busfahrer (.*)\: hat Linie (.*) für (.*)\$ und (.*) EXP beendet in (.*) Minuten\, over \*", var_)){
-		SetChatLine(1, "[Busfahrer] " var_1 " hat Linie " var_2 " für " var_3 "$ & " var_4 " EXP beendet. Zeit: " var_5 " Minuten")
+	if(RegExMatch(Chat0, "\* Busfahrer (.*)\: hat Linie (.*) fÃ¼r (.*)\$ und (.*) EXP beendet in (.*) Minuten\, over \*", var_)){
+		SetChatLine(0, "[Busfahrer] " var_1 " hat Linie " var_2 " fÃ¼r " var_3 "$ & " var_4 " EXP beendet. Zeit: " var_5 " Minuten")
+	}else if(RegExMatch(Chat1, "\* Busfahrer (.*)\: hat Linie (.*) fÃ¼r (.*)\$ und (.*) EXP beendet in (.*) Minuten\, over \*", var_)){
+		SetChatLine(1, "[Busfahrer] " var_1 " hat Linie " var_2 " fÃ¼r " var_3 "$ & " var_4 " EXP beendet. Zeit: " var_5 " Minuten")
 	}
 	
 	if(RegExMatch(Chat0, "Du bist an keinem Angelplatz \(Big Wheel Rods\) oder an einem Fischerboot\!") || RegExMatch(Chat0, "\*\* Du kanst nun wieder am Angelsteg angeln\.")){
@@ -1055,9 +1049,9 @@ autofuncs:
 				CarShowName := 0
 	}
 
-	if(RegExMatch(Chat0, "WARNUNG\: Hör auf zu Spamen\, sonst wirst du gekickt\!"))
+	if(RegExMatch(Chat0, "WARNUNG\: HÃ¶r auf zu Spamen\, sonst wirst du gekickt\!"))
 		SetChatLine(0, prefix "Spamwarunung")
-	else if(RegExMatch(Chat1, "WARNUNG\: Hör auf zu Spamen\, sonst wirst du gekickt\!"))
+	else if(RegExMatch(Chat1, "WARNUNG\: HÃ¶r auf zu Spamen\, sonst wirst du gekickt\!"))
 		SetChatLine(1, prefix "Spamwarunung")
 
 	if(FormattedAd != 0 && adtimeout <= 0)
@@ -1068,9 +1062,9 @@ autofuncs:
 					SetChatLine(1, MainColor "[Werbung] {FFFFFF}" werbung2_1 MainColor "...")
 			playerid := getPlayerID(werbung_2, 1)
 			if(playerid >= 0 && playerid < 500)
-				SetChatLine(0, MainColor "[Werbung] {FFFFFF}" werbung_1 MainColor " • {FFFFFF}" werbung_2 MainColor " (ID: {FFFFFF}" playerid MainColor ") (Tel.:{FFFFFF} " werbung_3 MainColor ")")
+				SetChatLine(0, MainColor "[Werbung] {FFFFFF}" werbung_1 MainColor " â€¢ {FFFFFF}" werbung_2 MainColor " (ID: {FFFFFF}" playerid MainColor ") (Tel.:{FFFFFF} " werbung_3 MainColor ")")
 			else
-				SetChatLine(0, MainColor "[Werbung] {FFFFFF}" werbung_1 MainColor " • {FFFFFF}" werbung_2 MainColor " (Tel.:{FFFFFF} " werbung_3 MainColor ")")
+				SetChatLine(0, MainColor "[Werbung] {FFFFFF}" werbung_1 MainColor " â€¢ {FFFFFF}" werbung_2 MainColor " (Tel.:{FFFFFF} " werbung_3 MainColor ")")
 			adtimeout := 100
 		}
 	}
@@ -1109,7 +1103,7 @@ autofuncs:
 						chat0 := readChatLine(0)
 						chat1 := readChatLine(1)
 						chat2 := readChatLine(2)
-						if (RegExMatch(chat0 . chat1 . chat2, "Paintball: (\S+) wurde von (\S+) getötet\.")) {
+						if (RegExMatch(chat0 . chat1 . chat2, "Paintball: (\S+) wurde von (\S+) getÃ¶tet\.")) {
 						}else{
 							attackerID := getAttacker(true)
 							attackerName := getPlayerNameById(attackerID)
@@ -1187,7 +1181,7 @@ autofuncs:
 	{
 		if(IsPlayerInRangeOfPoint(362.0880,173.5538,1008.3828,4)) ;Stadthalle
 		{
-			ChatMessage("Möchtest du das Stadthallen Menü öffnen? [X-Taste zum Bestätigen]")
+			ChatMessage("MÃ¶chtest du das Stadthallen MenÃ¼ Ã¶ffnen? [X-Taste zum BestÃ¤tigen]")
 			KeyWait, X, D, T10
 			if (!ErrorLevel) {
 				timeout := false
@@ -1219,14 +1213,14 @@ autofuncs:
 			|| isPlayerInRangeOfPoint(94.69, -1245.59, 14, 10)
 			|| isPlayerInRangeOfPoint(42.71, -1537.98, 5, 10)
 			|| isPlayerInRangeOfPoint(58.02, -1524.93, 5, 10)) {
-				ChatMessage("Möchtest du den Zoll öffnen? [X-Taste zum Bestätigen]")
+				ChatMessage("MÃ¶chtest du den Zoll Ã¶ffnen? [X-Taste zum BestÃ¤tigen]")
 				KeyWait, X, D, T10
 				if (!ErrorLevel) {
 					timeout := false
 					SendChat("/zoll")
 					Sleep 150
 					GetChatLine(0, chat)
-					if (InStr(chat, "Es ist keine Zollstation in deiner Nähe.")) {
+					if (InStr(chat, "Es ist keine Zollstation in deiner NÃ¤he.")) {
 						Sleep, 800
 						SendChat("/zoll")
 					}
@@ -1234,23 +1228,23 @@ autofuncs:
 				}else
 					timeout := true
 		}else if(isPlayerInRangeOfPoint(330.7327,-40.1807,2.2255, 3) && DrugsPlanted == 0){ ;Drogen
-			ChatMessage("Möchtest du Drogensamen kaufen? [X-Taste zum Bestätigen]")
+			ChatMessage("MÃ¶chtest du Drogensamen kaufen? [X-Taste zum BestÃ¤tigen]")
 			KeyWait, X, D, T10
 			if (!ErrorLevel) {
 				timeout := false
 				SendChat("/seed buy")
 				Sleep, 150
 				GetChatLine(0, Chat0)
-				if(!RegExMatch(Chat0, "in der Luft, auf Objekte/Bäume/Häuser, auf einer unrealistischen Stelle (keine Grünfläche).")){
+				if(!RegExMatch(Chat0, "in der Luft, auf Objekte/BÃ¤ume/HÃ¤user, auf einer unrealistischen Stelle (keine GrÃ¼nflÃ¤che).")){
 					Sleep 800
 					SendChat("/seed buy")
 				}
 				SetTimer, CustomTimeout, 5000
 			}else
 				timeout := true
-		}else if(InStr(Chat0, "Sichere jetzt dein Lotto Ticket mit /lotto für nur $2000!")) ;Lotto
+		}else if(InStr(Chat0, "Sichere jetzt dein Lotto Ticket mit /lotto fÃ¼r nur $2000!")) ;Lotto
 		{
-			ChatMessage("Möchtest du ein Lotto Ticket kaufen? [X-Taste zum Bestätigen]")
+			ChatMessage("MÃ¶chtest du ein Lotto Ticket kaufen? [X-Taste zum BestÃ¤tigen]")
 			KeyWait, X, D, T10
 			if (!ErrorLevel) {
 				timeout := false
@@ -1277,7 +1271,7 @@ autofuncs:
 			|| isPlayerInRangeOfPoint(-2243, -2560, 32, 10)
 			|| isPlayerInRangeOfPoint(1381, 457, 20, 10)
 			|| isPlayerInRangeOfPoint(70, 1218, 19, 10)) {
-				ChatMessage("Möchtest du dein Fahrzeug betanken? [X-Taste zum bestätigen]")
+				ChatMessage("MÃ¶chtest du dein Fahrzeug betanken? [X-Taste zum bestÃ¤tigen]")
 				KeyWait, X, D, T10
 				if (!ErrorLevel) {
 					timeout := false
@@ -1414,7 +1408,7 @@ updatePlayerStatus:
 {
 	newStatus := DB_GetStatus()
 	if(oldPlayerStatus != newStatus && (newStatus == "Normal" || newStatus == "Premium")){
-		ChatMessage("Dein Benutzerstatus hat sich geändert! Dein neuer Status: " newStatus)
+		ChatMessage("Dein Benutzerstatus hat sich geÃ¤ndert! Dein neuer Status: " newStatus)
 	}
 	oldPlayerStatus := newStatus
 }
@@ -1486,8 +1480,8 @@ BerufTimer:
 	mID := getPlayerVehicleModelID()
 	
 	;Trucker
-	if(RegExMatch(Chat1, "Du hast den Auftrag ([0-9]+) \((.*)\) abgeschlossen und erhälst am nächsten Payday ([0-9]+)\$\.", trucker_)){
-		SendChat("/j hat den Auftrag " trucker_1 " für " FormatNumber(trucker_3) "$ beendet. Zeit: " FormatTime(JobSeconds))
+	if(RegExMatch(Chat1, "Du hast den Auftrag ([0-9]+) \((.*)\) abgeschlossen und erhÃ¤lst am nÃ¤chsten Payday ([0-9]+)\$\.", trucker_)){
+		SendChat("/j hat den Auftrag " trucker_1 " fÃ¼r " FormatNumber(trucker_3) "$ beendet. Zeit: " FormatTime(JobSeconds))
 		JobSeconds := 0
 		SetTimer, JobTimer, Off
 		TL_jobtime.delete()
@@ -1504,11 +1498,11 @@ BerufTimer:
 			TL_jobtime.create()
 		}
 		SetTimer, JobTimer, 1000
-	}else if(RegExMatch(Chat3, "\* (.*)\$ werden am nächsten Payday Gutgeschrieben\.", pilot_) && PilotAktiv == 1){
+	}else if(RegExMatch(Chat3, "\* (.*)\$ werden am nÃ¤chsten Payday Gutgeschrieben\.", pilot_) && PilotAktiv == 1){
 		PilotAktiv := 0
 		SetTimer, JobTimer, Off
 		TL_jobtime.delete()
-		SendChat("/j hat seine Fluglinie für " pilot_1 "$ beendet. Zeit: " FormatTime(JobSeconds))
+		SendChat("/j hat seine Fluglinie fÃ¼r " pilot_1 "$ beendet. Zeit: " FormatTime(JobSeconds))
 	}else if(RegExMatch(Chat0, "Du bist nicht im Flugzeug\, mit dem du den Dienst begonnen hast\. Dienst Beendet\!") && PilotAktiv == 1){
 		PilotAktiv := 0
 		SetTimer, JobTimer, Off
@@ -1550,7 +1544,7 @@ BerufTimer:
 							TL_jobtime.vehicleID := getVehicleID()
 							TL_jobtime.create()
 						}
-						SetChatLine(2, prefix "Du hast " MaxPakets " Pakete für " FormatNumber(MaxPakets*200) "$ gekauft! Voraussichtliche Materialien: " VorMats)
+						SetChatLine(2, prefix "Du hast " MaxPakets " Pakete fÃ¼r " FormatNumber(MaxPakets*200) "$ gekauft! Voraussichtliche Materialien: " VorMats)
 						ChatMessage("Route wurde gestartet!")
 					}
 					attemp++
@@ -1572,7 +1566,7 @@ BerufTimer:
 						TL_jobtime.vehicleID := getVehicleID()
 						TL_jobtime.create()
 					}
-					SetChatLine(2, prefix "Du hast " MaxPakets " Pakete für " FormatNumber(MaxPakets*200) "$ gekauft! Voraussichtliche Materialien: " VorMats)
+					SetChatLine(2, prefix "Du hast " MaxPakets " Pakete fÃ¼r " FormatNumber(MaxPakets*200) "$ gekauft! Voraussichtliche Materialien: " VorMats)
 					ChatMessage("Route wurde gestartet!")
 				}
 			}
@@ -1592,7 +1586,7 @@ BerufTimer:
 			SendChat("/Materials Deliver")
 			Sleep 100
 			GetChatLine(0, Chat0)
-			if(RegExMatch(Chat0, "Du hast ([0-9]+) Materialien für deine ([0-9]+) Pakete erhalten \(\+([0-9]+) XP\)\.", var_)) {
+			if(RegExMatch(Chat0, "Du hast ([0-9]+) Materialien fÃ¼r deine ([0-9]+) Pakete erhalten \(\+([0-9]+) XP\)\.", var_)) {
 				SetTimer, JobTimer, Off
 				SetChatLine(0, "Du hast deine Route in " FormatTime(JobSeconds) " Min beendet und " var_1 " Materialien (+" var_3 " XP) erhalten")
 				ChatMessage("Route wurde erfolgreich beendet! Vergiss nicht deine Materialien zu sichern! (Safebox)")
@@ -1631,7 +1625,7 @@ BerufTimer:
 	
 	;Busfahrer
 	if(mID == 431 || mID == 437){	
-		if(InStr(Chat0, "Nächste Haltestelle:")) {
+		if(InStr(Chat0, "NÃ¤chste Haltestelle:")) {
 			if(!LinieAktiv) {
 				LinieAktiv := 1
 				JobSeconds := 0
@@ -1646,11 +1640,11 @@ BerufTimer:
 				TL_jobtime.delete()
 				SetChatLine(0, prefix "Du hast deine Linie abgebrochen!")
 			}
-		} else if(InStr(Chat0, "Du erhältst auf deine nächste Tour innerhalb")) {
-			RegExMatch(Chat1, "\* Du erhälst am nächsten Payday (.*)\$ gutgeschrieben\. Erhaltene Exp\: ([0-9]+)", bus_)
+		} else if(InStr(Chat0, "Du erhÃ¤ltst auf deine nÃ¤chste Tour innerhalb")) {
+			RegExMatch(Chat1, "\* Du erhÃ¤lst am nÃ¤chsten Payday (.*)\$ gutgeschrieben\. Erhaltene Exp\: ([0-9]+)", bus_)
 			if(LinieAktiv) {
 				SetTimer, JobTimer, Off
-				SendChat("/j hat Linie " activLinie " für " FormatNumber(bus_1) "$ und " bus_2 " EXP beendet in " FormatTime(JobSeconds) " Minuten")
+				SendChat("/j hat Linie " activLinie " fÃ¼r " FormatNumber(bus_1) "$ und " bus_2 " EXP beendet in " FormatTime(JobSeconds) " Minuten")
 				JobSeconds := 0
 				LinieAktiv := 0
 				TL_jobtime.delete()
@@ -1658,14 +1652,14 @@ BerufTimer:
 					startLinie(activLinie)
 				}
 			} else {
-				SendChat("/j hat Linie " activLinie " für " FormatNumber(bus_1) "$ und " bus_2 "EXP beendet")
+				SendChat("/j hat Linie " activLinie " fÃ¼r " FormatNumber(bus_1) "$ und " bus_2 "EXP beendet")
 			}
-		} else if(InStr(Chat0, "Du erhältst auf deine nächste Tour innerhalb")) {
+		} else if(InStr(Chat0, "Du erhÃ¤ltst auf deine nÃ¤chste Tour innerhalb")) {
 			GetChatLine(1, Chat0)
-			RegExMatch(Chat0, "\* Du erhälst am nächsten Payday (.*)\$ gutgeschrieben\. Erhaltene Exp\: ([0-9]+)", bus_)
+			RegExMatch(Chat0, "\* Du erhÃ¤lst am nÃ¤chsten Payday (.*)\$ gutgeschrieben\. Erhaltene Exp\: ([0-9]+)", bus_)
 			if(LinieAktiv) {
 				SetTimer, JobTimer, Off
-				SendChat("/j hat Linie " activLinie " für " FormatNumber(bus_1) "$ und " bus_2 " EXP beendet in " FormatTime(JobSeconds) " Minuten")
+				SendChat("/j hat Linie " activLinie " fÃ¼r " FormatNumber(bus_1) "$ und " bus_2 " EXP beendet in " FormatTime(JobSeconds) " Minuten")
 				JobSeconds := 0
 				LinieAktiv := 0
 				TL_jobtime.delete()
@@ -1673,7 +1667,7 @@ BerufTimer:
 					startLinie(activLinie)
 				}
 			} else {
-				SendChat("/j hat Linie " activLinie " für " FormatNumber(bus_1) "$ und " bus_2 " EXP beendet")
+				SendChat("/j hat Linie " activLinie " fÃ¼r " FormatNumber(bus_1) "$ und " bus_2 " EXP beendet")
 			}
 		}
 	}
@@ -1758,7 +1752,7 @@ Update:
 	URLDownloadToVar_(mainURL . "/version.txt", newestVersion)
 	if(newestVersion > version){
 		URLDownloadToVar_(mainURL . "/latest_changelog.txt", changelog)
-		MsgBox, 68, prawler, Es wurde eine neue Version von prawler veröffentlicht!`nMöchtest du diese herunterladen?`n`nVersion: %newestVersion%`n`nChangelog:`n%changelog%
+		MsgBox, 68, prawler, Es wurde eine neue Version von prawler verÃ¶ffentlicht!`nMÃ¶chtest du diese herunterladen?`n`nVersion: %newestVersion%`n`nChangelog:`n%changelog%
 		IfMsgBox, Yes
 		{
 			UrlDownloadToFile, %mainURL%/prawler.exe, prawler.new.exe
@@ -1906,7 +1900,7 @@ F9::
 }
 return
 
-~ä::
+~Ã¤::
 {
 	if(IsChatOpen())
 		return
@@ -2161,7 +2155,7 @@ CMD_FPSLock() {
 	if (!isPremium())
 		return true
 	if (fpsLock()) {
-		ChatMessage("Deine FPS wurden eingeschränkt")
+		ChatMessage("Deine FPS wurden eingeschrÃ¤nkt")
 	} else {
 		ChatMessage("Es ist ein Fehler aufgetreten! Versuche es erneut!")
 	}
@@ -2398,11 +2392,11 @@ CMD_Tempomat(params := "") {
 	}
 	if params is not number
 	{
-		ChatMessage("Bitte gib eine gültige Geschwindigkeit an!")
+		ChatMessage("Bitte gib eine gÃ¼ltige Geschwindigkeit an!")
 		return true
 	}
 	if(params < 5 or params > 200){
-		ChatMessage("Bitte gib eine gültige Geschwindigkeit an!")
+		ChatMessage("Bitte gib eine gÃ¼ltige Geschwindigkeit an!")
 		return true
 	}
 	if(IsPlayerDriver()){
@@ -2443,7 +2437,7 @@ CMD_Finanzen(){
 		SendInput, {Esc}
 	unblockDialog()
 	Sleep 150
-	showDialog(DIALOG_STYLE_TABLIST_HEADERS, "Finanzen", "Beschreibung`tWert`nBargeld`t" FormatNumber(line12_1) "$`nBank`t" FormatNumber(line13_1) "$`nFestgeld`t" FormatNumber(line14_1) "$`n`t`nGesamtvermögen`t" FormatNumber((line12_1+line13_1+line14_1))"$", "Schließen")
+	showDialog(DIALOG_STYLE_TABLIST_HEADERS, "Finanzen", "Beschreibung`tWert`nBargeld`t" FormatNumber(line12_1) "$`nBank`t" FormatNumber(line13_1) "$`nFestgeld`t" FormatNumber(line14_1) "$`n`t`nGesamtvermÃ¶gen`t" FormatNumber((line12_1+line13_1+line14_1))"$", "SchlieÃŸen")
 	return true
 }
 
@@ -2458,7 +2452,7 @@ CMD_prawlerhelp(){
 	} else {
 		Fraktion := ""
 	}
-	showDialog(DIALOG_STYLE_LIST, prefix . "Hilfemenü", "Einstellungen`nHotkeys`nBefehle`n{FFBF00}Premium Features`n" Fraktion, "Auswählen", "Schließen")
+	showDialog(DIALOG_STYLE_LIST, prefix . "HilfemenÃ¼", "Einstellungen`nHotkeys`nBefehle`n{FFBF00}Premium Features`n" Fraktion, "AuswÃ¤hlen", "SchlieÃŸen")
 }
 
 CMD_Chatclear() {
@@ -2509,7 +2503,7 @@ CMD_Taschenrechner(params := "") {
 	if(Ergebnis != "ERROR") {
 		ChatMessage(params " = " formatNumber(Ergebnis))
 	}else {
-		ChatMessage("Ungültige Eingabe")
+		ChatMessage("UngÃ¼ltige Eingabe")
 	}
 	return true
 }
@@ -2539,7 +2533,7 @@ CMD_Textdraws(){
 }
 
 CMD_Profil(){
-	showDialog(DIALOG_STYLE_TABLIST, prefix . "Informationen zum Benutzerkonto", "Benutzername`t" getUsername() "`nStatus`t" DB_GetStatus(), "Schließen")
+	showDialog(DIALOG_STYLE_TABLIST, prefix . "Informationen zum Benutzerkonto", "Benutzername`t" getUsername() "`nStatus`t" DB_GetStatus(), "SchlieÃŸen")
 	return true
 }
 
@@ -2586,7 +2580,7 @@ CMD_Add(params := "") {
 			if(Existiert == 0)
 			{
 				FileAppend, %Username%`n, %A_AppData%\prawler\Freunde.txt
-				ChatMessage(Username . " (ID: " params ") wurde als Freund hinzugefügt!")
+				ChatMessage(Username . " (ID: " params ") wurde als Freund hinzugefÃ¼gt!")
 				return true
 			}
 			else
@@ -2709,7 +2703,7 @@ CMD_Freunde() {
 		FileAppend, `n{8B8989}Es ist %Online% Freund online, %A_AppData%\prawler\Temp.txt
 	}
 	FileRead, TempFreunde, %A_AppData%\prawler\Temp.txt
-	showDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix "Freunde", "Name`tID`tStatus" . TempFreunde, "Schließen")
+	showDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix "Freunde", "Name`tID`tStatus" . TempFreunde, "SchlieÃŸen")
 	FileDelete, %A_AppData%\prawler\Temp.txt
 	return true
 }
@@ -2718,7 +2712,7 @@ CMD_DelAll() {
 	if (!isPremium())
 		return true
 	FileDelete, %A_AppData%\prawler\Freunde.txt
-	ChatMessage("Alle deine Freunde wurden aus deiner Freundesliste gelöscht")
+	ChatMessage("Alle deine Freunde wurden aus deiner Freundesliste gelÃ¶scht")
 	return true
 }
 
@@ -2767,7 +2761,7 @@ CMD_TogPC(){
 }
 
 CMD_Settings(){
-	showDialog(DIALOG_STYLE_LIST, prefix "Einstellungen", "Killcounter`nDeathcounter`nEigene Hotkeys`nWeiteres`nNeustarten", "Auswählen", "Schließen")
+	showDialog(DIALOG_STYLE_LIST, prefix "Einstellungen", "Killcounter`nDeathcounter`nEigene Hotkeys`nWeiteres`nNeustarten", "AuswÃ¤hlen", "SchlieÃŸen")
 	return true
 }
 
@@ -2789,9 +2783,9 @@ CMD_Spendenaufruf(params := ""){
 			Sleep 650
 			SendChat("/News einen Betrag an uns Spenden kann, damit wir weiterhin unsere Events")
 			Sleep 650
-			SendChat("/News veranstalten können! Standort: " params)
+			SendChat("/News veranstalten kÃ¶nnen! Standort: " params)
 			Sleep 650
-			SendChat("/News Die San News bedankt sich im voraus für alle Spenden!")
+			SendChat("/News Die San News bedankt sich im voraus fÃ¼r alle Spenden!")
 			collectedMoney := 0
 			SpendenaufrufActive := 1
 		}else if(SpendenaufrufActive == 1){
@@ -2799,9 +2793,9 @@ CMD_Spendenaufruf(params := ""){
 		Sleep 650
 			SendChat("/News Der Spendenaufruf wird nun beendet.")
 			Sleep 650
-			SendChat("/News Vielen Dank an alle Spender! Durch euch können wir die kommenden")
+			SendChat("/News Vielen Dank an alle Spender! Durch euch kÃ¶nnen wir die kommenden")
 			Sleep 650
-			SendChat("/News Events veranstalten! Wir wünschen euch weiterhin viel Spaß beim")
+			SendChat("/News Events veranstalten! Wir wÃ¼nschen euch weiterhin viel SpaÃŸ beim")
 			Sleep 650
 			SendChat("/News Spielen! ~ eure San News")
 			collectedMoney := 0
@@ -2833,30 +2827,30 @@ CMD_Wortsalat(params := ""){
 			telefonnummer := ReadStats("Telefonnummer")
 			SendChat("/News  .: Event - Wortsalat :.")
 			Sleep 650
-			SendChat("/News  Wir veranstalten in Kürze ein Event names Wortsalat! Dabei")
+			SendChat("/News  Wir veranstalten in KÃ¼rze ein Event names Wortsalat! Dabei")
 			Sleep 650
 			SendChat("/News  geht es darum ein vemischtes Wort zu erraten und mir das")
 			Sleep 650
 			SendChat("/News  richtige Wort per SMS zukommen zu lassen. Es werden 3 Runden")
 			Sleep 650
-			SendChat("/News  Durchgeführt und die Gewinne betragen " FormatNumber(params) "$ pro Runde!")
+			SendChat("/News  DurchgefÃ¼hrt und die Gewinne betragen " FormatNumber(params) "$ pro Runde!")
 			Sleep 650
 			SendChat("/News  Wir staten um " Time " Uhr | Tel.-Nr.: " telefonnummer)
 			return true
 		}else if(WortsalatAktiv == 1){
 			if(params == ""){
 				ChatMessage("Verwendung: /Wortsalat [Ort]")
-				ChatMessage("Bitte gib an, wo die Gewinner die Gewinne abholen können!")
+				ChatMessage("Bitte gib an, wo die Gewinner die Gewinne abholen kÃ¶nnen!")
 				return true
 			}
 			WortsalatAktiv := 0
 			SendChat("/News  .: Event - Wortsalat - ENDE :.")
 			Sleep 650
-			SendChat("/News  Wir bedanken uns bei euch für die zahlreichen Teilnahmen!")
+			SendChat("/News  Wir bedanken uns bei euch fÃ¼r die zahlreichen Teilnahmen!")
 			Sleep 650
-			SendChat("/News  Die Gewinner können ihren Gewinn hier abholen: " params)
+			SendChat("/News  Die Gewinner kÃ¶nnen ihren Gewinn hier abholen: " params)
 			Sleep 650
-			SendChat("/News  Wir wünschen euch noch einen angenehmen Tag!")
+			SendChat("/News  Wir wÃ¼nschen euch noch einen angenehmen Tag!")
 			return true
 		}
 	}
@@ -3002,12 +2996,12 @@ CMD_Delivery(params := ""){
 			DialogLine := GetDialogLine(line)
 			if(!InStr(DialogLine, "Auftrag"))
 				break
-			RegExMatch(DialogLine, "Auftrag ([0-9]+)\: (.*) \(von (.*) nach (.*)\)\, Gehalt\: ([0-9]+)\$\, noch ([0-9]+) Minuten verfügbar\.", contract_)
+			RegExMatch(DialogLine, "Auftrag ([0-9]+)\: (.*) \(von (.*) nach (.*)\)\, Gehalt\: ([0-9]+)\$\, noch ([0-9]+) Minuten verfÃ¼gbar\.", contract_)
 			newdialogtext .= "" contract_1 "`t" contract_2 "`t" contract_3 " > " contract_4 "`t" FormatNumber(contract_5) "$`n"
 		}
 		unblockDialog()
 		Sleep 100
-		ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Truckermissionen", newdialogtext, "Schließen")
+		ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Truckermissionen", newdialogtext, "SchlieÃŸen")
 	}else{
 		SendChat("/Delivery " params)
 	}
@@ -3291,29 +3285,29 @@ OnDialogResponse(response) {
 			STStatus := "{00FF00}AN{FFFFFF}"
 		else
 			STStatus := "{FF0000}AUS{FFFFFF}"
-		if (caption == prefix . "Hilfemenü") {
+		if (caption == prefix . "HilfemenÃ¼") {
 			if (getDialogLine(getDialogIndex()) == "Hotkeys"){
 				SendInput {Esc}
 				Sleep 100
-				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Hilfemenü -> Hotkeys", "Taste`tFunktion`n" hotkeylist "", "Schließen")
+				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "HilfemenÃ¼ -> Hotkeys", "Taste`tFunktion`n" hotkeylist "", "SchlieÃŸen")
 			} else if (getDialogLine(getDialogIndex()) == "Befehle"){
 				SendInput {Esc}
 				Sleep 100
-				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Hilfemenü -> Befehle", "Befehl`tFunktion`n" commandslist "", "Schließen")
+				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "HilfemenÃ¼ -> Befehle", "Befehl`tFunktion`n" commandslist "", "SchlieÃŸen")
 			} else if (getDialogLine(getDialogIndex()) == "{FFBF00}Premium Features"){
 				if(DB_GetStatus() == "Normal"){
 					SendInput {Esc}
 					Sleep 100
-					ShowDialog(DIALOG_STYLE_MSGBOX, prefix . "{FFBF00}Premium Features", "{FF0000}Du besitzt nicht den Premium Status!`n`n{FFFFFF}Du kannst dir den Premium Status bei Alborzar erwerben für`n{ACACAC}7.500$", "Schließen")
+					ShowDialog(DIALOG_STYLE_MSGBOX, prefix . "{FFBF00}Premium Features", "{FF0000}Du besitzt nicht den Premium Status!`n`n{FFFFFF}Du kannst dir den Premium Status bei Alborzar erwerben fÃ¼r`n{ACACAC}7.500$", "SchlieÃŸen")
 				}else{
 					SendInput {Esc}
 					Sleep 100
-					ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "{FFBF00}Premium Features", "Befehl`tFunktion`n" premiumfeatures "", "Schließen")
+					ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "{FFBF00}Premium Features", "Befehl`tFunktion`n" premiumfeatures "", "SchlieÃŸen")
 				}
 			} else if (getDialogLine(getDialogIndex()) == "News Reporter"){
 				SendInput {Esc}
 				Sleep 100
-				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Hilfemenü -> News Reporter", "Ausführung`tFunktion`n" nrcommands "", "Schließen")
+				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "HilfemenÃ¼ -> News Reporter", "AusfÃ¼hrung`tFunktion`n" nrcommands "", "SchlieÃŸen")
 			} else if (getDialogLine(getDialogIndex()) == "Einstellungen"){
 				SendInput {Esc}
 				Sleep 100
@@ -3327,11 +3321,11 @@ OnDialogResponse(response) {
 			if (getDialogLine(getDialogIndex()) == "Killcounter"){
 				SendInput {Esc}
 				Sleep 100
-				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Einstellungen -> Killcounter", "Einstellung`tStatus`nSenden im /F`t" KSFrak "`nSenden im /Crew`t" KSCrew, "Schließen")
+				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Einstellungen -> Killcounter", "Einstellung`tStatus`nSenden im /F`t" KSFrak "`nSenden im /Crew`t" KSCrew, "SchlieÃŸen")
 			} else if (getDialogLine(getDialogIndex()) == "Deathcounter"){
 				SendInput {Esc}
 				Sleep 100
-				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Einstellungen -> Deathcounter", "Einstellung`tStatus`nSenden im /F`t" DSFrak "`nSenden im /Crew`t" DSCrew, "Schließen")
+				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Einstellungen -> Deathcounter", "Einstellung`tStatus`nSenden im /F`t" DSFrak "`nSenden im /Crew`t" DSCrew, "SchlieÃŸen")
 			} else if (getDialogLine(getDialogIndex()) == "Eigene Hotkeys"){
 				SendInput {Esc}
 				counter := 0
@@ -3347,11 +3341,11 @@ OnDialogResponse(response) {
 					ownHotkeyList .= "" (ownHotkeyKey ? ownHotkeyKey : "-") "`t" (ownHotkeyText ? ownHotkeyText : "-") "`t" (ownHotkeyActive ? "{00FF00}AN{FFFFFF}" : "{FF0000}AUS{FFFFFF}") "`n"
 				}
 				Sleep 100
-				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Eigene Hotkeys", "Hotkey`tText`tStatus`n" ownHotkeyList, "Schließen")
+				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Eigene Hotkeys", "Hotkey`tText`tStatus`n" ownHotkeyList, "SchlieÃŸen")
 			} else if (getDialogLine(getDialogIndex()) == "Weiteres"){
 				SendInput {Esc}
 				Sleep 100
-				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Weiteres", "Einstellung`tTacho`nprawler Tacho`t" Tacho "`nServer Textdraws`t" STStatus, "Schließen")
+				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Weiteres", "Einstellung`tTacho`nprawler Tacho`t" Tacho "`nServer Textdraws`t" STStatus, "SchlieÃŸen")
 			} else if (getDialogLine(getDialogIndex()) == "Neustarten"){
 				SendInput {Esc}
 				Reload
@@ -3370,7 +3364,7 @@ OnDialogResponse(response) {
 					DSFrak := "{FF0000}AUS{FFFFFF}"
 				SendInput {Esc}
 				Sleep 100
-				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Einstellungen -> Deathcounter", "Einstellung`tStatus`nSenden im /F`t" DSFrak "`nSenden im /Crew`t" DSCrew, "Schließen")
+				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Einstellungen -> Deathcounter", "Einstellung`tStatus`nSenden im /F`t" DSFrak "`nSenden im /Crew`t" DSCrew, "SchlieÃŸen")
 			}else if (getDialogLine(getDialogIndex()) == "Senden im /Crew`t" DSCrew){
 				if(!ReadSettings("Weiteres", "DeathspruchInCrew")){
 					WriteSettings(1, "Weiteres", "DeathspruchInCrew")
@@ -3384,7 +3378,7 @@ OnDialogResponse(response) {
 					DSCrew := "{FF0000}AUS{FFFFFF}"
 				SendInput {Esc}
 				Sleep 100
-				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Einstellungen -> Deathcounter", "Einstellung`tStatus`nSenden im /F`t" DSFrak "`nSenden im /Crew`t" DSCrew, "Schließen")
+				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Einstellungen -> Deathcounter", "Einstellung`tStatus`nSenden im /F`t" DSFrak "`nSenden im /Crew`t" DSCrew, "SchlieÃŸen")
 			}
 		}else if(caption == prefix . "Einstellungen -> Killcounter"){ ;--- Killcounter
 			if (getDialogLine(getDialogIndex()) == "Senden im /F`t" KSFrak){
@@ -3400,7 +3394,7 @@ OnDialogResponse(response) {
 					KSFrak := "{FF0000}AUS{FFFFFF}"
 				SendInput {Esc}
 				Sleep 100
-				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Einstellungen -> Killcounter", "Einstellung`tStatus`nSenden im /F`t" KSFrak "`nSenden im /Crew`t" KSCrew, "Schließen")
+				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Einstellungen -> Killcounter", "Einstellung`tStatus`nSenden im /F`t" KSFrak "`nSenden im /Crew`t" KSCrew, "SchlieÃŸen")
 			}else if (getDialogLine(getDialogIndex()) == "Senden im /Crew`t" KSCrew){
 				if(!ReadSettings("Weiteres", "KillspruchInCrew")){
 					WriteSettings(1, "Weiteres", "KillspruchInCrew")
@@ -3414,7 +3408,7 @@ OnDialogResponse(response) {
 					KSCrew := "{FF0000}AUS{FFFFFF}"
 				SendInput {Esc}
 				Sleep 100
-				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Einstellungen -> Killcounter", "Einstellung`tStatus`nSenden im /F`t" KSFrak "`nSenden im /Crew`t" KSCrew, "Schließen")
+				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Einstellungen -> Killcounter", "Einstellung`tStatus`nSenden im /F`t" KSFrak "`nSenden im /Crew`t" KSCrew, "SchlieÃŸen")
 			}
 		}else if(caption == prefix . "Truckermissionen"){
 			SendInput {Esc}
@@ -3450,7 +3444,7 @@ OnDialogResponse(response) {
 					Tacho := "{00FF00}AN{FFFFFF}"
 				else
 					Tacho := "{FF0000}AUS{FFFFFF}"
-				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Weiteres", "Einstellung`tTacho`nprawler Tacho`t" Tacho "`nServer Textdraws`t" STStatus, "Schließen")
+				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Weiteres", "Einstellung`tTacho`nprawler Tacho`t" Tacho "`nServer Textdraws`t" STStatus, "SchlieÃŸen")
 			}else if(getDialogLine(getDialogIndex()) == "Server Textdraws`t" STStatus){
 				if(!ReadSettings("Weiteres", "ServerTextdraws")){
 					WriteSettings(1, "Weiteres", "ServerTextdraws")
@@ -3464,7 +3458,7 @@ OnDialogResponse(response) {
 					STStatus := "{00FF00}AN{FFFFFF}"
 				else
 					STStatus := "{FF0000}AUS{FFFFFF}"
-				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Weiteres", "Einstellung`tTacho`nprawler Tacho`t" Tacho "`nServer Textdraws`t" STStatus, "Schließen")
+				ShowDialog(DIALOG_STYLE_TABLIST_HEADERS, prefix . "Weiteres", "Einstellung`tTacho`nprawler Tacho`t" Tacho "`nServer Textdraws`t" STStatus, "SchlieÃŸen")
 			}
 		}else{
 			SendInput, {Enter}
@@ -3942,7 +3936,7 @@ isPremium() {
 	if(userStatus == "Premium" || userStatus == "Administrator") {
 		return true
 	} else if(userStatus == "Normal") {
-		ChatMessage("Diese Funktion ist für dich nicht Verfügbar! Du besitzt keinen Premium Status")
+		ChatMessage("Diese Funktion ist fÃ¼r dich nicht VerfÃ¼gbar! Du besitzt keinen Premium Status")
 		return false
 	}
 }
@@ -4000,7 +3994,7 @@ startLinie(linie = 1){
 				LinieAktiv := 0
 				TL_jobtime.vehicleID := 0xFFFF
 				TL_jobtime.delete()
-			}else if(InStr(Chatline, "Nächste Haltestelle: ")){
+			}else if(InStr(Chatline, "NÃ¤chste Haltestelle: ")){
 				JobSeconds := 0
 				SetTimer, JobTimer, 1000
 				SetChatLine(0, prefix "Du hast eine Linie gestartet!")
@@ -4125,7 +4119,7 @@ parseStats() {
 	if(DB_GetStatus() != "Normal")
 		string .= "`n`n{FFBF00}Prawler Premium Status"
    
-    ShowDialog(0, "{80FF00}" caption " - " time, string, "Schließen", "")
+    ShowDialog(0, "{80FF00}" caption " - " time, string, "SchlieÃŸen", "")
 	Sleep 100
 }
 
